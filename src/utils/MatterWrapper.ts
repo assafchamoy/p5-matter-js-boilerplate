@@ -1,20 +1,14 @@
-import {
-    Composite,
-    Constraint,
-    Engine,
-    IBodyDefinition,
-    IChamferableBodyDefinition,
-    World
-} from "matter-js";
+import { Engine, IBodyDefinition, IChamferableBodyDefinition } from "matter-js";
 import * as P5 from "p5";
 import MCircle from "./MCircle";
 import MBoundary from "./MBoundary";
 import MRect from "./MRect";
 import MCar from "./MCar";
+import Popcorn from "./Popcorn";
 
 export default class MatterWrapper {
     public readonly engine: Engine;
-    private readonly p5Instance: P5;
+    public readonly p5Instance: P5;
 
     public constructor(p5Instance: P5) {
         this.p5Instance = p5Instance;
@@ -61,5 +55,12 @@ export default class MatterWrapper {
         const car = new MCar(this, this.engine, x, y, width, height, wheelSize);
 
         return car;
+    }
+
+    public createPopcorn(x: number, y: number, radius: number, image: P5.Image, options?: IBodyDefinition): Popcorn {
+        const popcorn = new Popcorn(this.p5Instance, this.engine, x, y, radius, image);
+        console.log("createPopcorn", image)
+
+        return popcorn;
     }
 }

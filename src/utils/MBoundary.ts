@@ -1,4 +1,4 @@
-import { Bodies, IBodyDefinition, Body, Engine, World, Composite } from "matter-js";
+import { IBodyDefinition, Engine } from "matter-js";
 import * as P5 from "p5";
 import MRect from "./MRect";
 

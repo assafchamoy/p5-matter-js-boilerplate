@@ -1,4 +1,4 @@
-import { Bodies, Body, Composite, Constraint, Engine, World } from "matter-js";
+import { Body, Composite, Constraint, Engine } from "matter-js";
 import * as P5 from "p5";
 import MatterWrapper from "./MatterWrapper";
 

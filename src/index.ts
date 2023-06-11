@@ -3,7 +3,10 @@ import * as p5 from 'p5';
 import MatterWrapper from './utils/MatterWrapper';
 import MCircle from './utils/MCircle';
 import MBoundary, { MBoundaryParams } from './utils/MBoundary';
-import MCar from './utils/MCar';
+import MCar from './utils/MCar'; 
+import Popcorn from './utils/Popcorn';
+
+const img = require('./assets/popcorn.png');
 
 export const sketch = (p: p5) => {
     const BOUNDARY_SIZE = 100;
@@ -13,12 +16,21 @@ export const sketch = (p: p5) => {
     let boundaries: MBoundary[] = [];
     let mConstraint: MouseConstraint;
     let car: MCar;
+    let popcornImage: p5.Image;
+    let popcornBodies: Popcorn[] = [];
+
+    p.preload = () => {
+         popcornImage = p.loadImage(img);
+         console.log("PRELOADING!!", popcornImage);
+    }
 
     p.setup = () => {
+        console.log("SETUP!!", popcornImage);
+
         const canvas = p.createCanvas(1000, 800);
         
         for (let i=0;i< 100;i++) {
-            circles.push(matterWrapper.createCircle(50, 50, 20, {density: 1, restitution: 0.2}));
+            popcornBodies.push(matterWrapper.createPopcorn(50, 50, 20, popcornImage, {density: 1, restitution: 0.2}));
         }
 
         const boundariesParams: MBoundaryParams[] = [

@@ -1,20 +1,12 @@
-import { Bodies, IBodyDefinition, Body, Engine, World, Composite, IChamferableBodyDefinition } from "matter-js";
+import { Bodies, IBodyDefinition, Body, Engine, Composite, IChamferableBodyDefinition } from "matter-js";
 import * as P5 from "p5";
-
-export interface MRectParams {
-    x: number;
-    y: number;
-    width: number;
-    height: number;
-    options?: IBodyDefinition;
-}
 
 export default class MRect {
     public readonly width: number;
     public readonly height: number;
     public readonly body: Body;
-    private readonly engine: Engine;
-    private readonly p5: P5;
+    public readonly engine: Engine;
+    public readonly p5: P5;
 
     constructor(
         p5Instance: P5,

@@ -4,9 +4,8 @@ import * as P5 from "p5";
 export default class MCircle {
     public readonly radius: number;
     public readonly body: Body;
-    private readonly engine: Engine;
-    private readonly p5: P5;
-    
+    public readonly p5: P5;
+    public readonly engine: Engine;
 
     constructor(p5Instance: P5, engineInstance: Engine, x: number, y: number, radius:number, options?: IBodyDefinition) {
         this.radius = radius;
