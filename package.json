@@ -3,8 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
+  "repository": {
+    "url": "git+https://github.com/assafchamoy/p5-matter-js-boilerplate.git"
+  },
   "scripts": {
-    "start": "webpack serve --open"
+    "start": "webpack serve --open",
+    "build": "webpack --mode=development",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +18,7 @@
   "devDependencies": {
     "@types/matter-js": "^0.18.5",
     "@types/p5": "^1.4.2",
+    "gh-pages": "^5.0.0",
     "ts-loader": "^9.3.0",
     "typescript": "^4.6.4",
     "webpack": "^5.72.1",
