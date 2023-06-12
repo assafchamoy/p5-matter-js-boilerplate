@@ -4,7 +4,7 @@ import MCircle from "./MCircle";
 import MBoundary from "./MBoundary";
 import MRect from "./MRect";
 import MCar from "./MCar";
-import Popcorn from "./Popcorn";
+import Popcorn, { PopcornImages } from "./Popcorn";
 
 export default class MatterWrapper {
     public readonly engine: Engine;
@@ -57,9 +57,8 @@ export default class MatterWrapper {
         return car;
     }
 
-    public createPopcorn(x: number, y: number, radius: number, image: P5.Image, options?: IBodyDefinition): Popcorn {
-        const popcorn = new Popcorn(this.p5Instance, this.engine, x, y, radius, image);
-        console.log("createPopcorn", image)
+    public createPopcorn(x: number, y: number, radius: number, images: PopcornImages, options?: IBodyDefinition): Popcorn {
+        const popcorn = new Popcorn(this.p5Instance, this.engine, x, y, radius, images, options);
 
         return popcorn;
     }
